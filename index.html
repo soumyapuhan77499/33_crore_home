@@ -1,220 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 33crores</title>
-    <link rel="shortcut icon" href="https://poojastore.33crores.com/cdn/shop/files/MicrosoftTeams-image_471_32x32.png?v=1660732431" type="image/png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="css/style7.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>33crores — Pooja Flowers & App</title>
+  <meta name="description"
+    content="Do pooja with fresh flowers delivered daily. Download the 33 Crores app on iOS and Android." />
+  <link rel="shortcut icon"
+    href="https://poojastore.33crores.com/cdn/shop/files/MicrosoftTeams-image_471_32x32.png?v=1660732431"
+    type="image/png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <style>
+    :root {
+      --maxw: 1200px;
+      --radius: 16px;
+      --brand-dark: #0f0f0f;
+      --brand: #111;
+      --muted: #565656;
+      --pill: #f3f4f6;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --shadow: 0 8px 30px rgba(0, 0, 0, .06);
+      --accent: #70b3b1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Jost", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--brand);
+      background: #fff;
+      line-height: 1.5;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 16px 20px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      height: 56px;
+      display: block;
+    }
+
+    .hero {
+      padding: 28px 20px 8px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(28px, 2.2vw + 16px, 44px);
+      letter-spacing: .2px;
+    }
+
+    .hero p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* Main grid */
+    main .grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      padding: 28px 20px 40px;
+    }
+
+    @media (max-width: 900px) {
+      main .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Card */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      background: #fff;
+    }
+
+    .imgBox {
+      position: absolute;
+      inset: 0;
+    }
+
+    .imgBox img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .icon {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 64px;
+      height: 64px;
+      background: var(--accent);
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 16px;
+    }
+
+    .icon:before {
+      content: "";
+      position: absolute;
+      bottom: 6px;
+      left: -18px;
+      width: 18px;
+      height: 18px;
+      border-bottom-right-radius: 18px;
+      box-shadow: 6px 6px 0 6px #fff;
+    }
+
+    .icon:after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: 6px;
+      width: 18px;
+      height: 18px;
+      border-bottom-right-radius: 18px;
+      box-shadow: 6px 6px 0 6px var(--accent);
+    }
+
+    .iconBox {
+      position: absolute;
+      inset: 8px;
+      background: #222;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      transition: transform .25s ease;
+    }
+
+    .iconBox .material-symbols-outlined {
+      color: #fff;
+      font-size: 28px;
+    }
+
+    .card-link:hover .iconBox {
+      transform: scale(1.1);
+    }
+
+    .content {
+      padding: 16px 16px 18px;
+    }
+
+    .content h3 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .content p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      letter-spacing: .2px;
+    }
+
+    /* App module (sidebar) */
+    .app-panel {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .app-panel h4 {
+      margin: 0 0 2px;
+      font-size: 20px;
+    }
+
+    .app-panel p {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .app-badge {
+      display: inline-block;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+
+    .app-badge img {
+      display: block;
+      width: 180px;
+      height: auto;
+    }
+
+    .app-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #fff;
+    }
+
+    .footer-wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .footer-wrap {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .footer-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    footer h5 {
+      margin: 0 0 14px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      opacity: .9;
+      display: inline-block;
+      margin: 6px 0;
+    }
+
+    footer a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .social {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .social i {
+      font-size: 28px;
+    }
+
+    .footer-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .footer-badges .app-badge img {
+      width: 170px;
+    }
+
+    /* Utilities */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
 </head>
+
 <body>
-<section>
-  <div class="">
-    <img src="img/Logo_Black.webp" alt="" height="61px">
-  </div>
-  <div class="container">
-    <div class="card">
-        <a href="https://podcast.33crores.com/" target="_blank">
-        <div class="card-inner" style="--clr:#fff;" id="hoverCard1">
-            <div class="box">
-                <div class="imgBox">
-                    <img src="img/essentialimg/podcast.jpg" alt="Trust & Co.">
-                </div>
-                <div class="icon">
-                    <a href="https://podcast.33crores.com/" target="_blank" class="iconBox"><span class="material-symbols-outlined">arrow_outward</span></a>
-                </div>
-            </div>
-        </div>
-        <audio id="hoverSound1" src="img/pod.mp3"></audio>
-        <div class="content">
-            <h3>Podcast</h3>
-            <p>Listen to spiritual stories and real experiences of Bhakts.</p>
-        </div>
-      </a>
+  <!-- Header -->
+  <header>
+    <div class="wrap topbar">
+      <img src="img/Logo_Black.webp" alt="33Crores logo" class="logo" loading="eager" height="56" />
     </div>
-    <div class="card">
-      <a href="https://flowers.33crores.com/" target="_blank">
-        <div class="card-inner" style="--clr:#fff;" id="hoverCard2">
-            <div class="box">
-                <div class="imgBox">
-                    <img src="img/essentialimg/flower-delivery.jpg" alt="Tonic">
-                </div>
-                <div class="icon">
-                    <a href="https://flowers.33crores.com/" target="_blank" class="iconBox"><span class="material-symbols-outlined">arrow_outward</span></a>
-                </div>
+    <div class="wrap hero">
+      <h1>Fresh Pooja Flowers, delivered daily</h1>
+      <p>Experience devotion the simple way. Order flowers, manage pujas, and track deliveries in the 33 Crores app.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap grid">
+      <!-- Left: Card(s) -->
+      <article class="card">
+        <a href="https://flowers.33crores.com/" target="_blank" rel="noopener noreferrer" class="card-link"
+          id="hoverCard2">
+          <div class="card-inner" aria-hidden="true">
+            <div class="imgBox">
+              <img src="img/essentialimg/flower-delivery.jpg" alt="Pooja flowers being delivered to a home"
+                loading="lazy" />
             </div>
-        </div>
-        <audio id="hoverSound2" src="img/flowersound.mp3"></audio>
-        <div class="content">
+            <div class="icon">
+              <span class="iconBox" aria-hidden="true"><span
+                  class="material-symbols-outlined">arrow_outward</span></span>
+            </div>
+          </div>
+          <div class="content">
             <h3>Pooja Flower</h3>
-            <p>Do pooja with fresh flower that is delivered to you everyday.</p>
-        </div>
-      </a>
-    </div>
-    <div class="card">
-      <a href="https://pandit.33crores.com/" target="_blank">
-        <div class="card-inner" style="--clr:#fff;" id="hoverCard3">
-            <div class="box">
-                <div class="imgBox">
-                    <img src="img/essentialimg/pandit.jpg" alt="Shower Gel">
-                </div>
-                <div class="icon">
-                    <a href="https://pandit.33crores.com/" target="_blank" class="iconBox"><span class="material-symbols-outlined">arrow_outward</span></a>
-                </div>
-            </div>
-        </div>
-        <audio id="hoverSound3" src="img/ringtone-shankh-1101.mp3"></audio>
-        <div class="content">
-            <h3>Book Pandit</h3>
-            <p>Appoint a Vedic pandit to conduct religious activities for you.</p>
-        </div>
-      </a>
-    </div>
-    <div class="card">
-      <a href="https://poojastore.33crores.com/" target="_blank">
-        <div class="card-inner" style="--clr:#fff;" id="hoverCard4">
-            <div class="box">
-                <div class="imgBox">
-                    <img src="img/essentialimg/sacred.jpg" alt="Shower Gel">
-                </div>
-                <div class="icon">
-                    <a href="https://poojastore.33crores.com/" target="_blank" class="iconBox"><span class="material-symbols-outlined">arrow_outward</span></a>
-                </div>
-            </div>
-        </div>
-        <audio id="hoverSound4" src="img/Ghanti.mp3"></audio>
-        <div class="content">
-          <h3>Pooja Items</h3>
-          <p>Buy authentic and hand picked pooja items online
-            </p>
-        </div>
-      </a>
-    </div>
-  </div>
+            <p>Do pooja with fresh flowers delivered to you every day.</p>
+          </div>
+        </a>
+      </article>
 
-</section>
-
-<!-- <div class="footer-bg"> -->
-<section class="footer">
-  <div class="container">
-    <div class="card">
-       <div class="footer1-div">
-        <h5 class="text-16 fw-500 mb-30">Our Address</h5>
-        <p style="color:#fff ;     line-height: 38px;">  33Crores Pooja Products Pvt Ltd ,<br> 403, 4th Floor, O-Hub<br>
-          IDCO Sez Infocity,<br>
-          Bhubaneswar 751024,<br>
-          Odisha , Bharat<br>
-          <br></p>
-       </div>
-    </div>
-    <div class="card">
-      <div class="footer2-div">
-        <h5 class="text-16 fw-500 mb-30">Company</h5>
-        <div class="d-flex y-gap-10 flex-column">
-          <a href="https://pandit.33crores.com/about-us">About Us</a>
-          <a href="https://pandit.33crores.com/our-story">Our Story</a>
-          <a href="https://pandit.33crores.com/crores">What is 33 Crores</a>
-          <a href="https://pandit.33crores.com/contact-us">Contact</a>
-          
-        </div>
-      </div>  
-    </div>
-    <div class="card">
-      <div class="footer3-div">
-        <h5 class="text-16 fw-500 mb-30">Shopping</h5>
-        <div class="d-flex y-gap-10 flex-column">
-          <a href="https://pandit.33crores.com/privacy-data">Privacy & Data</a>
-          <a href="https://pandit.33crores.com/term-condition">Terms & Conditions</a>
-          <a href="https://pandit.33crores.com/cancel-return">Cancellation & Returns</a>
-          <a href="https://pandit.33crores.com/business-enrolledment">Business Enrollment</a>
-          <a href="https://pandit.33crores.com/religious-service-provider">Religious Service Provider</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-2 col-lg-4 col-sm-6">
-      <h5 class="text-16 fw-500 mb-30">Follow Us</h5>
-  
-      <div class="d-flex gap-3 mb-3">
-        <a href="https://www.facebook.com/33crores" style="color:#fff;"><i class="fa fa-facebook-square text-24"></i></a>
-        <a href="https://www.youtube.com/@33_Crores" style="color:#fff;"><i class="fa fa-youtube-square text-24"></i></a>
-        <a href="https://www.instagram.com/33crores/" style="color:#fff;"><i class="fa fa-instagram text-24"></i></a>
-      </div>
-
-      <!-- App Download Buttons - vertically stacked with spacing -->
-      <div class="d-flex flex-column gap-10">
-          <a href="https://apps.apple.com/in/app/33-crores/id6443912970"
-             target="_blank" 
-             class="d-flex items-center px-20 py-10 rounded-8 border-white-15 text-white bg-dark-3">
-              <div class="icon-apple text-24"></div>
-              <div class="ml-15">
-                  <div class="text-15 lh-1 fw-500">Apple Store</div>
-              </div>
+      <!-- Right: App download panel (sidebar) -->
+      <aside class="card app-panel" aria-labelledby="get-the-app">
+        <h4 id="get-the-app">Get the 33 Crores App</h4>
+        <p>Order faster, get reminders, and manage deliveries on iOS & Android.</p>
+        <div class="badge-row">
+          <a class="app-badge" href="https://apps.apple.com/in/app/33-crores/id6443912970" target="_blank"
+            rel="noopener noreferrer" aria-label="Download on the App Store">
+            <img src="ios.png" alt="Download on the App Store" loading="lazy" />
           </a>
-  
-          <a href="https://play.google.com/store/apps/details?id=com.thirtythreecroresapp&hl=en"
-             target="_blank"
-             class="d-flex items-center px-20 py-10 rounded-8 border-white-15 text-white bg-dark-3">
-              <div class="icon-play-market text-24"></div>
-              <div class="ml-15">
-                  <div class="text-15 lh-1 fw-500">Google Play</div>
-              </div>
+          <a class="app-badge" href="https://play.google.com/store/apps/details?id=com.thirtythreecroresapp&hl=en"
+            target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+            <img src="google.png" alt="Get it on Google Play" loading="lazy" />
           </a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-wrap">
+      <div>
+        <h5>Our Address</h5>
+        <p style="opacity:.9; line-height:1.9;">
+          33Crores Pooja Products Pvt Ltd,<br />
+          403, 4th Floor, O-Hub<br />
+          IDCO Sez Infocity,<br />
+          Bhubaneswar 751024,<br />
+          Odisha, Bharat
+        </p>
       </div>
-  </div>
-  </div>
-</section>
-<!-- </div> -->
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = [
-        { card: document.getElementById('hoverCard1'), sound: document.getElementById('hoverSound1') },
-        { card: document.getElementById('hoverCard2'), sound: document.getElementById('hoverSound2') },
-        { card: document.getElementById('hoverCard3'), sound: document.getElementById('hoverSound3') },
-        { card: document.getElementById('hoverCard4'), sound: document.getElementById('hoverSound4') }
-    ];
+      <div>
+        <h5>Company</h5>
+        <div>
+          <a href="https://pandit.33crores.com/about-us" target="_blank" rel="noopener noreferrer">About Us</a><br />
+          <a href="https://pandit.33crores.com/our-story" target="_blank" rel="noopener noreferrer">Our Story</a><br />
+          <a href="https://pandit.33crores.com/crores" target="_blank" rel="noopener noreferrer">What is 33
+            Crores</a><br />
+          <a href="https://pandit.33crores.com/contact-us" target="_blank" rel="noopener noreferrer">Contact</a>
+        </div>
+      </div>
 
-    cards.forEach(({ card, sound }) => {
-        card.addEventListener('mouseenter', () => {
-            sound.currentTime = 0;  // Reset the audio to the beginning
-            sound.play();
-        });
+      <div>
+        <h5>Shopping</h5>
+        <div>
+          <a href="https://pandit.33crores.com/privacy-data" target="_blank" rel="noopener noreferrer">Privacy &
+            Data</a><br />
+          <a href="https://pandit.33crores.com/term-condition" target="_blank" rel="noopener noreferrer">Terms &
+            Conditions</a><br />
+          <a href="https://pandit.33crores.com/cancel-return" target="_blank" rel="noopener noreferrer">Cancellation &
+            Returns</a><br />
+          <a href="https://pandit.33crores.com/business-enrolledment" target="_blank" rel="noopener noreferrer">Business
+            Enrollment</a><br />
+          <a href="https://pandit.33crores.com/religious-service-provider" target="_blank"
+            rel="noopener noreferrer">Religious Service Provider</a>
+        </div>
+      </div>
 
-        card.addEventListener('mouseleave', () => {
-            sound.pause();
-            sound.currentTime = 0;  // Optional: Reset the audio to the beginning
-        });
+      <div>
+        <h5>Follow Us</h5>
+        <div class="social">
+          <a href="https://www.facebook.com/33crores" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i
+              class="fa fa-facebook-square"></i></a>
+          <a href="https://www.youtube.com/@33_Crores" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i
+              class="fa fa-youtube-square"></i></a>
+          <a href="https://www.instagram.com/33crores/" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        </div>
+        <!-- Footer (right) app badges stacked -->
+        <div class="footer-badges">
+          <a class="app-badge" href="https://apps.apple.com/in/app/33-crores/id6443912970" target="_blank"
+            rel="noopener noreferrer" aria-label="Download on the App Store">
+            <img src="ios.png" alt="Download on the App Store" loading="lazy" />
+          </a>
+          <a class="app-badge" href="https://play.google.com/store/apps/details?id=com.thirtythreecroresapp&hl=en"
+            target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+            <img src="google.png" alt="Get it on Google Play" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Audio just for the flower card -->
+  <audio id="hoverSound2" src="img/flowersound.mp3" preload="auto"></audio>
+
+  <script>
+    // Safe hover sound handling
+    document.addEventListener('DOMContentLoaded', () => {
+      const card = document.getElementById('hoverCard2');
+      const sound = document.getElementById('hoverSound2');
+      if (card && sound) {
+        const play = () => { try { sound.currentTime = 0; sound.play().catch(() => { }); } catch (_) { } };
+        const stop = () => { try { sound.pause(); sound.currentTime = 0; } catch (_) { } };
+        card.addEventListener('mouseenter', play, { passive: true });
+        card.addEventListener('mouseleave', stop, { passive: true });
+        card.addEventListener('focus', play);
+        card.addEventListener('blur', stop);
+      }
     });
-});
+  </script>
 
-</script>
-<script src="https://www.googletagmanager.com/gtag/js?id=G-7HJVJ0D57F" async></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7HJVJ0D57F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-7HJVJ0D57F');
+  </script>
 
-  gtag('config', 'G-7HJVJ0D57F');
-</script>
-<!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1297902044836474');
-  fbq('track', 'PageView');
+  <!-- Meta Pixel -->
+  <script>
+    !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1297902044836474'); fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1297902044836474&ev=PageView&noscript=1"
-  /></noscript>
-  
+      src="https://www.facebook.com/tr?id=1297902044836474&ev=PageView&noscript=1" alt="" /></noscript>
 </body>
-</html>
 
+</html>
