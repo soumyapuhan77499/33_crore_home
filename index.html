@@ -14,22 +14,23 @@
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
   <style>
     :root {
       --maxw: 1200px;
-      --radius: 16px;
-      --brand: #111;
-      --muted: #565656;
-      --card: #fff;
-      --border: #e5e7eb;
-      --shadow: 0 8px 30px rgba(0, 0, 0, .06);
-      --accent: #70b3b1;
-      --footer: #cc0001;
+      --radius-lg: 24px;
+      --radius: 14px;
+      --brand: #0f0f0f;
+      --muted: #575757;
+      --red: #cc0001;
+      --peach-1: #fff1ec;
+      --peach-2: #ffe5dd;
+      --card: #ffffff;
+      --border: #e9e9e9;
+      --shadow: 0 12px 40px rgba(0, 0, 0, .08);
+      --shadow-sm: 0 8px 24px rgba(0, 0, 0, .06);
     }
 
     * {
@@ -49,283 +50,263 @@
       line-height: 1.5
     }
 
-    /* Header */
+    /* Header (simple like the screenshot) */
     header {
-      border-bottom: 1px solid var(--border);
-      background: #fff
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
     .wrap {
       max-width: var(--maxw);
       margin: 0 auto;
-      padding: 12px 16px
+      padding: 12px 16px;
     }
 
     .topbar {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px
+      gap: 12px;
     }
 
     .logo {
-      height: 52px;
+      height: 40px;
+      width: auto;
       display: block
     }
 
+    .brand-name {
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--red);
+      letter-spacing: .2px
+    }
+
+    /* HERO — matches the screenshot layout */
     .hero {
-      padding: 16px 16px 8px
+      position: relative;
+      background: radial-gradient(150% 100% at 50% 0%, var(--peach-1) 0%, var(--peach-2) 60%, #fff 100%);
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px 16px 0;
+      text-align: center;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      background: #fff;
+      color: var(--red);
+      border: 1px solid #ffd2cc;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 14px;
     }
 
     .hero h1 {
       margin: 0;
-      font-size: clamp(24px, 2.2vw + 12px, 36px);
-      letter-spacing: .2px
+      font-weight: 700;
+      font-size: clamp(28px, 4.6vw, 44px);
+      letter-spacing: .2px;
     }
 
-    /* Main grid (alignment tightened) */
-    main .grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 18px;
-      padding: 16px 16px 24px;
-      align-items: start;
-      /* aligns the two blocks properly */
+    .hero-sub {
+      margin: 8px auto 0;
+      color: #353535;
+      max-width: 680px;
+      font-size: clamp(15px, 2.1vw, 18px);
     }
 
-    @media (max-width: 900px) {
-      main .grid {
-        grid-template-columns: 1fr
-      }
-    }
-
-    /* Card (compact) */
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden
-    }
-
-    .card-link {
-      display: block;
-      color: inherit;
-      text-decoration: none
-    }
-
-    .card-inner {
+    /* Illustration band like the screenshot (wide bottom art) */
+    .hero-art {
       position: relative;
-      width: 100%;
+      margin-top: 18px;
       height: 240px;
-      /* reduced height */
-      background: #fff;
+      max-height: 36vh;
+      overflow: hidden;
     }
 
-    @media (max-width: 480px) {
-      .card-inner {
-        height: 200px
-      }
-
-      /* even smaller on small phones */
-    }
-
-    .imgBox {
-      position: absolute;
-      inset: 0
-    }
-
-    .imgBox img {
-      width: 100%;
+    .hero-art img {
+      width: 110%;
+      max-width: none;
       height: 100%;
       object-fit: cover;
-      display: block
+      object-position: center bottom;
+      display: block;
+      filter: saturate(1.05);
+      transform: translateX(-5%);
     }
 
-    .icon {
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
-      width: 56px;
-      height: 56px;
-      background: var(--accent);
-      border-top-left-radius: 50%;
-      border-bottom-right-radius: 14px
+    /* Overlapping CTA CARD with badges */
+    .cta-wrap {
+      position: relative;
+      top: -48px;
+      /* lift the card up to overlap art like screenshot */
+      margin-bottom: -24px;
+      /* pull up the next section spacing */
     }
 
-    .icon:before {
-      content: "";
-      position: absolute;
-      bottom: 6px;
-      left: -16px;
-      width: 16px;
-      height: 16px;
-      border-bottom-right-radius: 16px;
-      box-shadow: 6px 6px 0 6px #fff
+    .cta-card {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 18px 16px;
     }
 
-    .icon:after {
-      content: "";
-      position: absolute;
-      top: -18px;
-      right: 6px;
-      width: 16px;
-      height: 16px;
-      border-bottom-right-radius: 16px;
-      box-shadow: 6px 6px 0 6px var(--accent)
-    }
-
-    .iconBox {
-      position: absolute;
-      inset: 8px;
-      background: #222;
-      border-radius: 50%;
+    .cta-inner {
       display: grid;
-      place-items: center;
-      transition: transform .2s ease
-    }
-
-    .iconBox .material-symbols-outlined {
-      color: #fff;
-      font-size: 26px
-    }
-
-    .card-link:hover .iconBox {
-      transform: scale(1.06)
-    }
-
-    .content {
-      padding: 12px 14px 14px
-    }
-
-    .content h3 {
-      margin: 0 0 4px;
-      font-size: 20px
-    }
-
-    .content p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14.5px;
-      letter-spacing: .2px
-    }
-
-    /* App panel (tight layout) */
-    .app-panel {
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px
-    }
-
-    .app-panel h4 {
-      margin: 0 0 2px;
-      font-size: 18px
-    }
-
-    .app-panel p {
-      margin: 0 0 8px;
-      color: var(--muted);
-      font-size: 14.5px
-    }
-
-    /* Badges */
-    .badge-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      /* sits neatly side-by-side */
-      gap: 10px;
+      grid-template-columns: 1fr;
+      gap: 12px;
       align-items: center;
+      text-align: center;
+    }
+
+    .cta-text {
+      font-size: clamp(15px, 2vw, 18px);
+      color: #2a2a2a;
+    }
+
+    .cta-text b {
+      font-weight: 700
+    }
+
+    .cta-em {
+      color: var(--red);
+      font-weight: 700
+    }
+
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .app-badge {
       display: inline-block;
-      border: 1px solid var(--border);
-      border-radius: 10px;
+      border: 1px solid #ececec;
+      border-radius: 12px;
       overflow: hidden;
       background: #fff;
-      transition: transform .12s ease, box-shadow .12s ease
+      box-shadow: var(--shadow-sm);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+
+    .app-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
     }
 
     .app-badge img {
       display: block;
-      width: 160px;
-      height: auto
+      width: 180px;
+      height: auto;
     }
 
-    /* slightly smaller so both fit comfortably */
-    .app-badge:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow)
-    }
-
-    /* Ensure both badges visible without scrolling on small phones */
-    @media (max-width: 480px) {
-      .wrap {
-        padding: 10px 12px
+    /* MOBILE — ensure both badges visible without scrolling */
+    @media (max-width: 420px) {
+      .hero-inner {
+        padding-top: 20px
       }
 
-      .hero {
-        padding: 10px 12px 4px
+      .hero-art {
+        height: 190px
       }
 
-      main .grid {
-        gap: 12px;
-        padding: 10px 12px 14px
+      .cta-wrap {
+        top: -36px;
       }
 
-      .content {
-        padding: 10px 12px 12px
+      .cta-card {
+        padding: 14px 12px;
+        border-radius: 18px;
       }
 
       .badge-row {
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
+        gap: 10px;
       }
 
       .app-badge img {
-        width: 140px
+        width: 150px;
       }
 
-      /* fits 360–414px wide screens comfortably */
-      .app-panel {
-        gap: 8px
+      /* fits common 360–414px widths side-by-side */
+    }
+
+    @media (max-width: 340px) {
+      .app-badge img {
+        width: 138px;
       }
+
+      /* tiny phones */
+    }
+
+    /* CONTENT “How we help” sample anchor like screenshot */
+    .how {
+      padding: 28px 16px 14px;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .how .chip {
+      display: inline-block;
+      background: #ffdfe0;
+      color: #7b0b14;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
     }
 
     /* Footer */
     footer {
-      background: var(--footer);
-      color: #fff
+      background: var(--red);
+      color: #fff;
+      margin-top: 12px;
     }
 
     .footer-wrap {
       max-width: var(--maxw);
       margin: 0 auto;
-      padding: 24px 16px;
-      /* reduced to save vertical space */
+      padding: 28px 16px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      gap: 20px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width:900px) {
       .footer-wrap {
-        grid-template-columns: 1fr 1fr
+        grid-template-columns: 1fr 1fr;
       }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width:520px) {
       .footer-wrap {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
       }
     }
 
     footer h5 {
       margin: 0 0 10px;
       font-size: 16px;
-      font-weight: 600;
-      color: #fff
+      font-weight: 700;
+      color: #fff;
+    }
+
+    footer p {
+      margin: 0;
+      color: #ffeaea;
     }
 
     footer a {
@@ -333,107 +314,98 @@
       text-decoration: none;
       opacity: .95;
       display: inline-block;
-      margin: 4px 0
+      margin: 4px 0;
     }
 
     footer a:hover {
       opacity: 1;
-      text-decoration: underline
-    }
-
-    footer p {
-      color: #ffeaea;
-      margin: 0
+      text-decoration: underline;
     }
 
     .social {
       display: flex;
       gap: 12px;
-      margin: 8px 0 10px
+      margin: 8px 0 10px;
     }
 
     .social i {
       font-size: 26px;
-      color: #fff
+      color: #fff;
     }
 
     .footer-badges {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: 6px
+      margin-top: 6px;
     }
 
     .footer-badges .app-badge {
       border-color: rgba(255, 255, 255, .35);
-      background: #fff
+      background: #fff;
     }
 
     .footer-badges .app-badge img {
       width: 150px;
-      height: auto;
-      display: block
     }
 
     @media (max-width:480px) {
       .footer-badges .app-badge img {
-        width: 140px
+        width: 140px;
       }
     }
   </style>
 </head>
 
 <body>
+
   <!-- Header -->
   <header>
     <div class="wrap topbar">
-      <img src="img/Logo_Black.webp" alt="33Crores logo" class="logo" loading="eager" height="52" />
-    </div>
-    <div class="wrap hero">
-      <h1>Pooja Flowers, Delivered Daily</h1>
+      <img src="img/Logo_Black.webp" alt="33Crores logo" class="logo" height="40" />
+      <span class="brand-name">33Crores</span>
     </div>
   </header>
 
-  <main>
-    <div class="wrap grid">
-      <!-- Left: Flower card (smaller height & compact content) -->
-      <article class="card">
-        <a href="#" rel="noopener noreferrer" class="card-link"
-          id="hoverCard2">
-          <div class="card-inner" aria-hidden="true">
-            <div class="imgBox">
-              <img src="img/essentialimg/flower-delivery.jpg" alt="Pooja flowers being delivered to a home"
-                loading="lazy" />
-            </div>
-            <div class="icon">
-              <span class="iconBox" aria-hidden="true"><span
-                  class="material-symbols-outlined">arrow_outward</span></span>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Subscribe Daily Pooja Flower</h3>
-            <p>Order flowers, manage subscription, get reminders and track deliveries in the 33 Crores
-              app</p>
-          </div>
-        </a>
-      </article>
+  <!-- HERO (like the screenshot) -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="hero-kicker">Devotion made easy</span>
+      <h1>Pooja hua <span style="font-weight:700;">easy</span></h1>
+      <p class="hero-sub">33Crores — the complete puja & flower subscription platform for every home.</p>
 
-      <!-- Right: App download panel -->
-      <aside class="card app-panel" aria-labelledby="get-the-app">
-        <h4 id="get-the-app">Get the 33 Crores App</h4>
-        <div class="badge-row">
-          <a class="app-badge" href="https://apps.apple.com/in/app/33-crores/id6443912970" target="_blank"
-            rel="noopener noreferrer" aria-label="Download on the App Store">
-            <img src="img/ios.png" alt="Download on the App Store" loading="lazy" />
-          </a>
-          <a class="app-badge" href="https://play.google.com/store/apps/details?id=com.thirtythreecroresapp&hl=en"
-            target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
-            <img src="img/google.png" alt="Get it on Google Play" loading="lazy" />
-          </a>
-        </div>
-      </aside>
+      <div class="hero-art" aria-hidden="true">
+        <img src="img/essentialimg/flower-delivery.jpg" alt="Illustration of devotees receiving fresh flowers" />
+      </div>
     </div>
-  </main>
+
+    <!-- Overlapping CTA -->
+    <div class="cta-wrap">
+      <div class="cta-card">
+        <div class="cta-inner">
+          <div class="cta-text">
+            Over <b>5L+ devotees</b> already receive flowers at home and get reminders. Start now to manage pooja <span
+              class="cta-em">3× easier</span>!
+          </div>
+          <div class="badge-row">
+            <a class="app-badge" href="https://play.google.com/store/apps/details?id=com.thirtythreecroresapp&hl=en"
+              target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+              <img src="img/google.png" alt="Get it on Google Play">
+            </a>
+            <a class="app-badge" href="https://apps.apple.com/in/app/33-crores/id6443912970" target="_blank"
+              rel="noopener noreferrer" aria-label="Download on the App Store">
+              <img src="img/ios.png" alt="Download on the App Store">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Optional anchor like “HOW WE HELP” -->
+  <div class="how">
+    <span class="chip">HOW WE HELP</span>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -487,35 +459,18 @@
             aria-label="Instagram"><i class="fa fa-instagram"></i></a>
         </div>
         <div class="footer-badges">
-          <a class="app-badge" href="https://apps.apple.com/in/app/33-crores/id6443912970" target="_blank"
-            rel="noopener noreferrer" aria-label="Download on the App Store">
-            <img src="img/ios.png" alt="Download on the App Store" loading="lazy" />
-          </a>
           <a class="app-badge" href="https://play.google.com/store/apps/details?id=com.thirtythreecroresapp&hl=en"
             target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
-            <img src="img/google.png" alt="Get it on Google Play" loading="lazy" />
+            <img src="img/google.png" alt="Get it on Google Play" />
+          </a>
+          <a class="app-badge" href="https://apps.apple.com/in/app/33-crores/id6443912970" target="_blank"
+            rel="noopener noreferrer" aria-label="Download on the App Store">
+            <img src="img/ios.png" alt="Download on the App Store" />
           </a>
         </div>
       </div>
     </div>
   </footer>
-
-  <!-- Hover sound -->
-  <audio id="hoverSound2" src="img/flowersound.mp3" preload="auto"></audio>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const card = document.getElementById('hoverCard2');
-      const sound = document.getElementById('hoverSound2');
-      if (card && sound) {
-        const play = () => { try { sound.currentTime = 0; sound.play().catch(() => { }); } catch (_) { } };
-        const stop = () => { try { sound.pause(); sound.currentTime = 0; } catch (_) { } };
-        card.addEventListener('mouseenter', play, { passive: true });
-        card.addEventListener('mouseleave', stop, { passive: true });
-        card.addEventListener('focus', play);
-        card.addEventListener('blur', stop);
-      }
-    });
-  </script>
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7HJVJ0D57F"></script>
