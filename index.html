@@ -50,25 +50,25 @@
       line-height: 1.5
     }
 
-    /* Header (simple like the screenshot) */
+    /* Header */
     header {
       background: #fff;
       border-bottom: 1px solid #f0f0f0;
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 20
     }
 
     .wrap {
       max-width: var(--maxw);
       margin: 0 auto;
-      padding: 12px 16px;
+      padding: 12px 16px
     }
 
     .topbar {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 12px
     }
 
     .logo {
@@ -77,25 +77,18 @@
       display: block
     }
 
-    .brand-name {
-      font-weight: 700;
-      font-size: 20px;
-      color: var(--red);
-      letter-spacing: .2px
-    }
-
-    /* HERO — matches the screenshot layout */
+    /* HERO */
     .hero {
       position: relative;
       background: radial-gradient(150% 100% at 50% 0%, var(--peach-1) 0%, var(--peach-2) 60%, #fff 100%);
-      overflow: hidden;
+      overflow: hidden
     }
 
     .hero-inner {
       max-width: var(--maxw);
       margin: 0 auto;
       padding: 28px 16px 0;
-      text-align: center;
+      text-align: center
     }
 
     .hero-kicker {
@@ -107,30 +100,30 @@
       padding: 6px 12px;
       border-radius: 999px;
       box-shadow: var(--shadow-sm);
-      margin-bottom: 14px;
+      margin-bottom: 14px
     }
 
     .hero h1 {
       margin: 0;
       font-weight: 700;
       font-size: clamp(28px, 4.6vw, 44px);
-      letter-spacing: .2px;
+      letter-spacing: .2px
     }
 
     .hero-sub {
       margin: 8px auto 0;
       color: #353535;
       max-width: 680px;
-      font-size: clamp(15px, 2.1vw, 18px);
+      font-size: clamp(15px, 2.1vw, 18px)
     }
 
-    /* Illustration band like the screenshot (wide bottom art) */
+    /* Hero illustration band */
     .hero-art {
       position: relative;
       margin-top: 18px;
       height: 240px;
       max-height: 36vh;
-      overflow: hidden;
+      overflow: hidden
     }
 
     .hero-art img {
@@ -141,16 +134,14 @@
       object-position: center bottom;
       display: block;
       filter: saturate(1.05);
-      transform: translateX(-5%);
+      transform: translateX(-5%)
     }
 
-    /* Overlapping CTA CARD with badges */
+    /* Overlapping CTA */
     .cta-wrap {
       position: relative;
       top: -48px;
-      /* lift the card up to overlap art like screenshot */
-      margin-bottom: -24px;
-      /* pull up the next section spacing */
+      margin-bottom: -24px
     }
 
     .cta-card {
@@ -160,7 +151,7 @@
       border: 1px solid var(--border);
       border-radius: 22px;
       box-shadow: var(--shadow);
-      padding: 18px 16px;
+      padding: 18px 16px
     }
 
     .cta-inner {
@@ -168,12 +159,46 @@
       grid-template-columns: 1fr;
       gap: 12px;
       align-items: center;
-      text-align: center;
+      text-align: center
+    }
+
+    .cta-heading {
+      margin: 2px 0 6px;
+      font-size: 22px;
+      font-weight: 700
+    }
+
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .app-badge {
+      display: inline-block;
+      border: 1px solid #ececec;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+      transition: transform .12s ease, box-shadow .12s ease
+    }
+
+    .app-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow)
+    }
+
+    .app-badge img {
+      display: block;
+      width: 180px;
+      height: auto
     }
 
     .cta-text {
       font-size: clamp(15px, 2vw, 18px);
-      color: #2a2a2a;
+      color: #2a2a2a
     }
 
     .cta-text b {
@@ -185,95 +210,67 @@
       font-weight: 700
     }
 
-    .badge-row {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .app-badge {
-      display: inline-block;
-      border: 1px solid #ececec;
-      border-radius: 12px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: var(--shadow-sm);
-      transition: transform .12s ease, box-shadow .12s ease;
-    }
-
-    .app-badge:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-
-    .app-badge img {
-      display: block;
-      width: 180px;
-      height: 100%;
-    }
-
-    /* MOBILE — ensure both badges visible without scrolling */
+    /* MOBILE TWEAKS */
     @media (max-width: 420px) {
       .hero-inner {
         padding-top: 20px
       }
 
       .hero-art {
-        height: 190px
+        height: 190px;
+        padding: 0 8px;
+      }
+
+      /* Curved rounded image card effect on mobile */
+      .hero-art img {
+        width: 100%;
+        height: 100%;
+        transform: none;
+        object-position: center 80%;
+        border-radius: 20px;
+        /* <-- rounded corners on mobile */
+        box-shadow: var(--shadow-sm);
+        /* soft shadow for card feel */
       }
 
       .cta-wrap {
-        top: -36px;
+        top: -36px
       }
 
       .cta-card {
         padding: 14px 12px;
-        border-radius: 18px;
+        border-radius: 18px
+      }
+
+      .cta-heading {
+        font-size: 20px;
+        margin-bottom: 4px
       }
 
       .badge-row {
-        gap: 10px;
+        gap: 10px
       }
 
       .app-badge img {
-        width: 140px;
+        width: 140px
       }
 
-      /* fits common 360–414px widths side-by-side */
+      /* both badges visible without scroll */
     }
 
     @media (max-width: 340px) {
       .app-badge img {
-        width: 128px;
+        width: 128px
       }
 
-      /* tiny phones */
-    }
-
-    /* CONTENT “How we help” sample anchor like screenshot */
-    .how {
-      padding: 28px 16px 14px;
-      max-width: var(--maxw);
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .how .chip {
-      display: inline-block;
-      background: #ffdfe0;
-      color: #7b0b14;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-weight: 600;
-      box-shadow: var(--shadow-sm);
+      /* very small phones */
     }
 
     /* Footer */
     footer {
       background: var(--red);
       color: #fff;
-      margin-top: 12px;
+      margin-top: 12px
     }
 
     .footer-wrap {
@@ -282,41 +279,31 @@
       padding: 28px 16px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 20px
     }
 
     @media (max-width:900px) {
       .footer-wrap {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr
       }
-      
-    .footer-badges .app-badge {
-        width: 140px;
-    }
-
     }
 
     @media (max-width:520px) {
       .footer-wrap {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr
       }
-      
-    .footer-badges .app-badge {
-        width: 140px;
-    }
-
     }
 
     footer h5 {
       margin: 0 0 10px;
       font-size: 16px;
       font-weight: 700;
-      color: #fff;
+      color: #fff
     }
 
     footer p {
       margin: 0;
-      color: #ffeaea;
+      color: #ffeaea
     }
 
     footer a {
@@ -324,50 +311,54 @@
       text-decoration: none;
       opacity: .95;
       display: inline-block;
-      margin: 4px 0;
+      margin: 4px 0
     }
 
     footer a:hover {
       opacity: 1;
-      text-decoration: underline;
+      text-decoration: underline
     }
 
     .social {
       display: flex;
       gap: 12px;
-      margin: 8px 0 10px;
+      margin: 8px 0 10px
     }
 
     .social i {
       font-size: 26px;
-      color: #fff;
+      color: #fff
     }
 
     .footer-badges {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: 6px;
+      margin-top: 6px
     }
 
     .footer-badges .app-badge {
       border-color: rgba(255, 255, 255, .35);
-      background: #fff;
+      background: #fff
     }
 
     .footer-badges .app-badge img {
       width: 150px;
+      height: auto;
+      display: block
     }
 
-    @media (max-width:480px) {
+    /* Footer badge widths on mobile (no inline styles needed) */
+    @media (max-width:900px) {
       .footer-badges .app-badge img {
-        width: 140px;
+        width: 140px
       }
-      
-    .footer-badges .app-badge {
-        width: 140px;
     }
 
+    @media (max-width:520px) {
+      .footer-badges .app-badge img {
+        width: 140px
+      }
     }
   </style>
 </head>
@@ -381,12 +372,12 @@
     </div>
   </header>
 
-  <!-- HERO (like the screenshot) -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <span class="hero-kicker">Devotion Made Easy</span>
+      <span class="hero-kicker">Devotion made easy</span>
       <h1>Pooja <span style="font-weight:700;">ସହଜ ହେଲା</span></h1>
-      <p class="hero-sub">33Crores — the complete flower subscription and puja platform for every home.</p>
+      <p class="hero-sub">33Crores — the complete puja & flower subscription platform for every home.</p>
 
       <div class="hero-art" aria-hidden="true">
         <img src="img/essentialimg/flower-delivery.jpg" alt="Illustration of devotees receiving fresh flowers" />
@@ -397,10 +388,7 @@
     <div class="cta-wrap">
       <div class="cta-card">
         <div class="cta-inner">
-          <div class="cta-text">
-            Over <b>1000 + devotees</b> already receive flowers at home and get reminders. Start now to manage pooja <span
-              class="cta-em">3× easier</span>!
-          </div>
+          <h2 class="cta-heading">Download the App</h2>
           <div class="badge-row">
             <a class="app-badge" href="https://play.google.com/store/apps/details?id=com.thirtythreecroresapp&hl=en"
               target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
@@ -410,6 +398,10 @@
               rel="noopener noreferrer" aria-label="Download on the App Store">
               <img src="img/ios.png" alt="Download on the App Store">
             </a>
+          </div>
+          <div class="cta-text">
+            Over <b>1000+ devotees</b> already receive flowers at home and get reminders. Start now to manage pooja
+            <span class="cta-em">3× easier</span>!
           </div>
         </div>
       </div>
@@ -469,11 +461,11 @@
         </div>
         <div class="footer-badges">
           <a class="app-badge" href="https://play.google.com/store/apps/details?id=com.thirtythreecroresapp&hl=en"
-            target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play" style="width: 150px">
+            target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
             <img src="img/google.png" alt="Get it on Google Play" />
           </a>
           <a class="app-badge" href="https://apps.apple.com/in/app/33-crores/id6443912970" target="_blank"
-            rel="noopener noreferrer" aria-label="Download on the App Store" style="width: 150px">
+            rel="noopener noreferrer" aria-label="Download on the App Store">
             <img src="img/ios.png" alt="Download on the App Store" />
           </a>
         </div>
