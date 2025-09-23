@@ -252,10 +252,10 @@
       box-shadow: var(--shadow);
     }
 
-    /* Footer */
+    /* Footer (updated to #cc0001) */
     footer {
-      background: #111;
-      color: #fff;
+      background: #cc0001; /* primary footer background */
+      color: #ffffff;      /* default text color */
     }
 
     .footer-wrap {
@@ -283,12 +283,13 @@
       margin: 0 0 14px;
       font-size: 17px;
       font-weight: 600;
+      color: #ffffff; /* headings stay white for contrast */
     }
 
     footer a {
-      color: #fff;
+      color: #fff;        /* links white */
       text-decoration: none;
-      opacity: .9;
+      opacity: .95;
       display: inline-block;
       margin: 6px 0;
     }
@@ -296,6 +297,10 @@
     footer a:hover {
       opacity: 1;
       text-decoration: underline;
+    }
+
+    footer p {
+      color: #ffeaea;     /* softer off-white for body text on red */
     }
 
     .social {
@@ -306,6 +311,7 @@
 
     .social i {
       font-size: 28px;
+      color: #ffffff;     /* ensure icons are white on red */
     }
 
     .footer-badges {
@@ -315,8 +321,16 @@
       margin-top: 10px;
     }
 
+    /* Make badge borders readable on red; keep badge body white */
+    .footer-badges .app-badge {
+      border-color: rgba(255, 255, 255, 0.35);
+      background: #ffffff;
+    }
+
     .footer-badges .app-badge img {
       width: 170px;
+      height: auto;
+      display: block;
     }
 
     /* Utilities */
@@ -391,7 +405,7 @@
     <div class="footer-wrap">
       <div>
         <h5>Our Address</h5>
-        <p style="opacity:.9; line-height:1.9;">
+        <p style="opacity:.95; line-height:1.9;">
           33Crores Pooja Products Pvt Ltd,<br />
           403, 4th Floor, O-Hub<br />
           IDCO Sez Infocity,<br />
@@ -414,21 +428,16 @@
       <div>
         <h5>Shopping</h5>
         <div>
-          <a href="https://pandit.33crores.com/privacy-data" target="_blank" rel="noopener noreferrer">Privacy &
-            Data</a><br />
-          <a href="https://pandit.33crores.com/term-condition" target="_blank" rel="noopener noreferrer">Terms &
-            Conditions</a><br />
-          <a href="https://pandit.33crores.com/cancel-return" target="_blank" rel="noopener noreferrer">Cancellation &
-            Returns</a><br />
-          <a href="https://pandit.33crores.com/business-enrolledment" target="_blank" rel="noopener noreferrer">Business
-            Enrollment</a><br />
-          <a href="https://pandit.33crores.com/religious-service-provider" target="_blank"
-            rel="noopener noreferrer">Religious Service Provider</a>
+          <a href="https://pandit.33crores.com/privacy-data" target="_blank" rel="noopener noreferrer">Privacy & Data</a><br />
+          <a href="https://pandit.33crores.com/term-condition" target="_blank" rel="noopener noreferrer">Terms & Conditions</a><br />
+          <a href="https://pandit.33crores.com/cancel-return" target="_blank" rel="noopener noreferrer">Cancellation & Returns</a><br />
+          <a href="https://pandit.33crores.com/business-enrolledment" target="_blank" rel="noopener noreferrer">Business Enrollment</a><br />
+          <a href="https://pandit.33crores.com/religious-service-provider" target="_blank" rel="noopener noreferrer">Religious Service Provider</a>
         </div>
       </div>
 
       <div>
-        <h5>Follows</h5>
+        <h5>Follow Us</h5>
         <div class="social">
           <a href="https://www.facebook.com/33crores" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i
               class="fa fa-facebook-square"></i></a>
