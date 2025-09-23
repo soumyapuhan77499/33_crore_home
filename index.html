@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>33crores — Pooja Flowers & App</title>
   <meta name="description"
     content="Do pooja with fresh flowers delivered daily. Download the 33 Crores app on iOS and Android." />
@@ -23,152 +23,156 @@
     :root {
       --maxw: 1200px;
       --radius: 16px;
-      --brand-dark: #0f0f0f;
       --brand: #111;
       --muted: #565656;
-      --pill: #f3f4f6;
-      --card: #ffffff;
+      --card: #fff;
       --border: #e5e7eb;
       --shadow: 0 8px 30px rgba(0, 0, 0, .06);
       --accent: #70b3b1;
+      --footer: #cc0001;
     }
 
     * {
-      box-sizing: border-box;
+      box-sizing: border-box
     }
 
     html,
     body {
       margin: 0;
-      padding: 0;
+      padding: 0
     }
 
     body {
       font-family: "Jost", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       color: var(--brand);
       background: #fff;
-      line-height: 1.5;
+      line-height: 1.5
     }
 
     /* Header */
     header {
       border-bottom: 1px solid var(--border);
-      background: #fff;
+      background: #fff
     }
 
     .wrap {
       max-width: var(--maxw);
       margin: 0 auto;
-      padding: 16px 20px;
+      padding: 12px 16px
     }
 
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px
     }
 
     .logo {
-      height: 56px;
-      display: block;
+      height: 52px;
+      display: block
     }
 
     .hero {
-      padding: 28px 20px 8px;
+      padding: 16px 16px 8px
     }
 
     .hero h1 {
       margin: 0;
-      font-size: clamp(28px, 2.2vw + 16px, 44px);
-      letter-spacing: .2px;
+      font-size: clamp(24px, 2.2vw + 12px, 36px);
+      letter-spacing: .2px
     }
 
-    .hero p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    /* Main grid */
+    /* Main grid (alignment tightened) */
     main .grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 24px;
-      padding: 28px 20px 40px;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 18px;
+      padding: 16px 16px 24px;
+      align-items: start;
+      /* aligns the two blocks properly */
     }
 
     @media (max-width: 900px) {
       main .grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr
       }
     }
 
-    /* Card */
+    /* Card (compact) */
     .card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      overflow: hidden;
+      overflow: hidden
     }
 
     .card-link {
       display: block;
       color: inherit;
-      text-decoration: none;
+      text-decoration: none
     }
 
     .card-inner {
       position: relative;
       width: 100%;
-      height: 320px;
+      height: 240px;
+      /* reduced height */
       background: #fff;
+    }
+
+    @media (max-width: 480px) {
+      .card-inner {
+        height: 200px
+      }
+
+      /* even smaller on small phones */
     }
 
     .imgBox {
       position: absolute;
-      inset: 0;
+      inset: 0
     }
 
     .imgBox img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      display: block
     }
 
     .icon {
       position: absolute;
-      bottom: 10px;
-      right: 10px;
-      width: 64px;
-      height: 64px;
+      bottom: 8px;
+      right: 8px;
+      width: 56px;
+      height: 56px;
       background: var(--accent);
       border-top-left-radius: 50%;
-      border-bottom-right-radius: 16px;
+      border-bottom-right-radius: 14px
     }
 
     .icon:before {
       content: "";
       position: absolute;
       bottom: 6px;
-      left: -18px;
-      width: 18px;
-      height: 18px;
-      border-bottom-right-radius: 18px;
-      box-shadow: 6px 6px 0 6px #fff;
+      left: -16px;
+      width: 16px;
+      height: 16px;
+      border-bottom-right-radius: 16px;
+      box-shadow: 6px 6px 0 6px #fff
     }
 
     .icon:after {
       content: "";
       position: absolute;
-      top: -20px;
+      top: -18px;
       right: 6px;
-      width: 18px;
-      height: 18px;
-      border-bottom-right-radius: 18px;
-      box-shadow: 6px 6px 0 6px var(--accent);
+      width: 16px;
+      height: 16px;
+      border-bottom-right-radius: 16px;
+      box-shadow: 6px 6px 0 6px var(--accent)
     }
 
     .iconBox {
@@ -178,171 +182,203 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      transition: transform .25s ease;
+      transition: transform .2s ease
     }
 
     .iconBox .material-symbols-outlined {
       color: #fff;
-      font-size: 28px;
+      font-size: 26px
     }
 
     .card-link:hover .iconBox {
-      transform: scale(1.1);
+      transform: scale(1.06)
     }
 
     .content {
-      padding: 16px 16px 18px;
+      padding: 12px 14px 14px
     }
 
     .content h3 {
-      margin: 0;
-      font-size: 24px;
+      margin: 0 0 4px;
+      font-size: 20px
     }
 
     .content p {
-      margin: 8px 0 0;
+      margin: 0;
       color: var(--muted);
-      font-size: 15px;
-      letter-spacing: .2px;
+      font-size: 14.5px;
+      letter-spacing: .2px
     }
 
-    /* App module (sidebar) */
+    /* App panel (tight layout) */
     .app-panel {
-      padding: 18px;
+      padding: 14px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 10px
     }
 
     .app-panel h4 {
       margin: 0 0 2px;
-      font-size: 20px;
+      font-size: 18px
     }
 
     .app-panel p {
       margin: 0 0 8px;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14.5px
     }
 
+    /* Badges */
     .badge-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      /* sits neatly side-by-side */
+      gap: 10px;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
     }
 
     .app-badge {
       display: inline-block;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
       background: #fff;
-      transition: transform .12s ease, box-shadow .12s ease;
+      transition: transform .12s ease, box-shadow .12s ease
     }
 
     .app-badge img {
       display: block;
-      width: 180px;
-      height: auto;
+      width: 160px;
+      height: auto
     }
 
+    /* slightly smaller so both fit comfortably */
     .app-badge:hover {
       transform: translateY(-2px);
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow)
     }
 
-    /* Footer (updated to #cc0001) */
+    /* Ensure both badges visible without scrolling on small phones */
+    @media (max-width: 480px) {
+      .wrap {
+        padding: 10px 12px
+      }
+
+      .hero {
+        padding: 10px 12px 4px
+      }
+
+      main .grid {
+        gap: 12px;
+        padding: 10px 12px 14px
+      }
+
+      .content {
+        padding: 10px 12px 12px
+      }
+
+      .badge-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .app-badge img {
+        width: 140px
+      }
+
+      /* fits 360–414px wide screens comfortably */
+      .app-panel {
+        gap: 8px
+      }
+    }
+
+    /* Footer */
     footer {
-      background: #cc0001; /* primary footer background */
-      color: #ffffff;      /* default text color */
+      background: var(--footer);
+      color: #fff
     }
 
     .footer-wrap {
       max-width: var(--maxw);
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 24px 16px;
+      /* reduced to save vertical space */
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 18px;
     }
 
     @media (max-width: 900px) {
       .footer-wrap {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr
       }
     }
 
     @media (max-width: 520px) {
       .footer-wrap {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr
       }
     }
 
     footer h5 {
-      margin: 0 0 14px;
-      font-size: 17px;
+      margin: 0 0 10px;
+      font-size: 16px;
       font-weight: 600;
-      color: #ffffff; /* headings stay white for contrast */
+      color: #fff
     }
 
     footer a {
-      color: #fff;        /* links white */
+      color: #fff;
       text-decoration: none;
       opacity: .95;
       display: inline-block;
-      margin: 6px 0;
+      margin: 4px 0
     }
 
     footer a:hover {
       opacity: 1;
-      text-decoration: underline;
+      text-decoration: underline
     }
 
     footer p {
-      color: #ffeaea;     /* softer off-white for body text on red */
+      color: #ffeaea;
+      margin: 0
     }
 
     .social {
       display: flex;
-      gap: 14px;
-      margin-bottom: 14px;
+      gap: 12px;
+      margin: 8px 0 10px
     }
 
     .social i {
-      font-size: 28px;
-      color: #ffffff;     /* ensure icons are white on red */
+      font-size: 26px;
+      color: #fff
     }
 
     .footer-badges {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
+      gap: 8px;
+      margin-top: 6px
     }
 
-    /* Make badge borders readable on red; keep badge body white */
     .footer-badges .app-badge {
-      border-color: rgba(255, 255, 255, 0.35);
-      background: #ffffff;
+      border-color: rgba(255, 255, 255, .35);
+      background: #fff
     }
 
     .footer-badges .app-badge img {
-      width: 170px;
+      width: 150px;
       height: auto;
-      display: block;
+      display: block
     }
 
-    /* Utilities */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
+    @media (max-width:480px) {
+      .footer-badges .app-badge img {
+        width: 140px
+      }
     }
   </style>
 </head>
@@ -351,7 +387,7 @@
   <!-- Header -->
   <header>
     <div class="wrap topbar">
-      <img src="img/Logo_Black.webp" alt="33Crores logo" class="logo" loading="eager" height="56" />
+      <img src="img/Logo_Black.webp" alt="33Crores logo" class="logo" loading="eager" height="52" />
     </div>
     <div class="wrap hero">
       <h1>Fresh Pooja Flowers, delivered daily</h1>
@@ -360,7 +396,7 @@
 
   <main>
     <div class="wrap grid">
-      <!-- Left: Card(s) -->
+      <!-- Left: Flower card (smaller height & compact content) -->
       <article class="card">
         <a href="https://flowers.33crores.com/" target="_blank" rel="noopener noreferrer" class="card-link"
           id="hoverCard2">
@@ -376,14 +412,16 @@
           </div>
           <div class="content">
             <h3>Pooja Flower</h3>
-            <p>Experience devotion the simple way. Order flowers, manage pujas, and track deliveries in the 33 Crores app..</p>
+            <p>Experience devotion the simple way. Order flowers, manage pujas, and track deliveries in the 33 Crores
+              app.</p>
           </div>
         </a>
       </article>
 
-      <!-- Right: App download panel (sidebar) -->
+      <!-- Right: App download panel -->
       <aside class="card app-panel" aria-labelledby="get-the-app">
         <h4 id="get-the-app">Get the 33 Crores App</h4>
+        <p>Order faster, get reminders, and manage deliveries on iOS & Android.</p>
         <div class="badge-row">
           <a class="app-badge" href="https://apps.apple.com/in/app/33-crores/id6443912970" target="_blank"
             rel="noopener noreferrer" aria-label="Download on the App Store">
@@ -403,7 +441,7 @@
     <div class="footer-wrap">
       <div>
         <h5>Our Address</h5>
-        <p style="opacity:.95; line-height:1.9;">
+        <p>
           33Crores Pooja Products Pvt Ltd,<br />
           403, 4th Floor, O-Hub<br />
           IDCO Sez Infocity,<br />
@@ -426,11 +464,16 @@
       <div>
         <h5>Shopping</h5>
         <div>
-          <a href="https://pandit.33crores.com/privacy-data" target="_blank" rel="noopener noreferrer">Privacy & Data</a><br />
-          <a href="https://pandit.33crores.com/term-condition" target="_blank" rel="noopener noreferrer">Terms & Conditions</a><br />
-          <a href="https://pandit.33crores.com/cancel-return" target="_blank" rel="noopener noreferrer">Cancellation & Returns</a><br />
-          <a href="https://pandit.33crores.com/business-enrolledment" target="_blank" rel="noopener noreferrer">Business Enrollment</a><br />
-          <a href="https://pandit.33crores.com/religious-service-provider" target="_blank" rel="noopener noreferrer">Religious Service Provider</a>
+          <a href="https://pandit.33crores.com/privacy-data" target="_blank" rel="noopener noreferrer">Privacy &
+            Data</a><br />
+          <a href="https://pandit.33crores.com/term-condition" target="_blank" rel="noopener noreferrer">Terms &
+            Conditions</a><br />
+          <a href="https://pandit.33crores.com/cancel-return" target="_blank" rel="noopener noreferrer">Cancellation &
+            Returns</a><br />
+          <a href="https://pandit.33crores.com/business-enrolledment" target="_blank" rel="noopener noreferrer">Business
+            Enrollment</a><br />
+          <a href="https://pandit.33crores.com/religious-service-provider" target="_blank"
+            rel="noopener noreferrer">Religious Service Provider</a>
         </div>
       </div>
 
@@ -444,7 +487,6 @@
           <a href="https://www.instagram.com/33crores/" target="_blank" rel="noopener noreferrer"
             aria-label="Instagram"><i class="fa fa-instagram"></i></a>
         </div>
-        <!-- Footer (right) app badges stacked -->
         <div class="footer-badges">
           <a class="app-badge" href="https://apps.apple.com/in/app/33-crores/id6443912970" target="_blank"
             rel="noopener noreferrer" aria-label="Download on the App Store">
@@ -459,11 +501,9 @@
     </div>
   </footer>
 
-  <!-- Audio just for the flower card -->
+  <!-- Hover sound -->
   <audio id="hoverSound2" src="img/flowersound.mp3" preload="auto"></audio>
-
   <script>
-    // Safe hover sound handling
     document.addEventListener('DOMContentLoaded', () => {
       const card = document.getElementById('hoverCard2');
       const sound = document.getElementById('hoverSound2');
@@ -490,8 +530,10 @@
     !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1297902044836474'); fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1297902044836474&ev=PageView&noscript=1" alt="" /></noscript>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1297902044836474&ev=PageView&noscript=1" alt="" />
+  </noscript>
 </body>
 
 </html>
